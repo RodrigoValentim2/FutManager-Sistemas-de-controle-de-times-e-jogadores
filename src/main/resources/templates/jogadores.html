@@ -19,13 +19,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<form>
+			<form  action="/jogadores/salvar" method="POST">
 				<div class="input-field col s4">
-					<input type="text" placeholder="Nome do time" class="validate" id="time">
+					<input type="text" placeholder="Nome do time" class="validate" name="nome">
 					<label for="fist_name">Nome do time</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" placeholder="Idade" class="validate" id="time">
+					<input type="text" placeholder="Idade" class="validate" name="idade">
 					<label for="fist_name">Idade</label>
 				</div>
 				<div class="col s4">
@@ -44,9 +44,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Rodrigo</td>
-						<td>Timão</td>
+					<tr th:each="jogador : ${jogadores}">
+						<td th:text="${jogador.nome}"></td>
+						<td th.text="${jogador.time}"></td>
 							<td><a class="waves-effect waves-teal btn-flat" href="#">x</a></td>
 					</tr>
 				</tbody>
