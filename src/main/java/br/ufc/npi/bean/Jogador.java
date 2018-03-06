@@ -1,10 +1,17 @@
 package br.ufc.npi.bean;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
+import javax.persistence.ManyToOne;
+
+
+
+
+
 
 
 @Entity
@@ -16,7 +23,7 @@ public class Jogador {
 	String nome;
 	Integer idade;
 	
-	@OneToOne
+	@ManyToOne
 	Time time;
 	
 	public Time getTime() {

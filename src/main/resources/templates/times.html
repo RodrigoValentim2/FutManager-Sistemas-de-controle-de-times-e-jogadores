@@ -20,9 +20,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<form>
+			<form action="/times/salvar" method="post">
 				<div class="input-field col s8">
-					<input type="text" placeholder="Nome do time" class="validate" id="time">
+					<input type="text" placeholder="Nome do time" name="nomeTime" id="nomeTime" class="validate">
 					<label for="fist_name">Nome do time</label>
 				</div>
 				<div class="col s4">
@@ -42,9 +42,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Time 01</td>
-						<td>4</td>
+					<tr th:each="time : ${times}">
+						<td th:text="${time.nome}"></td>
+						<td th.text="${time.jogadores.size()}"></td>
 						<td><a class="waves-effect waves-teal btn-flat" href="#">Ver detalhes</a></td>
 							<td><a class="waves-effect waves-teal btn-flat" href="#">x</a></td>
 					</tr>
