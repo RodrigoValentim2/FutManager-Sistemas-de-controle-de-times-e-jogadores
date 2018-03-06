@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html	xmlns = "http://www.w3.org/199/xhtml"
+	xmlns: th ="http://www.thymeleaf.org"
+	xmlns:layout="http//www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<meta charset="UTF-8">
+<title>FutManager</title>
+</head>
+<body>
+     <div class="container">
+		<div class="row valign-wrapper">
+			<div class="col s6">	
+				<h3>Detalhes do time: Nome do time</h3>
+			</div>
+			<div class="col s6">
+			       <a href="/jogadores/" class="btn-large waves-effect waves-light teal">Gerenciar Jogadores</a>
+			       <a href="/jogadores/" class="btn-large waves-effect waves-light teal">Gerenciar Times</a>
+			</div>
+		</div>
+		<div class="row">
+			<form>
+				<div class="col s8">
+				<label>Escolha um jogador</label>
+					<select class="browser-default">
+						<option value="" disabled="disabled" selected="selected">Escolha um jogador</option>
+						<option value="1" >Jogador 1</option>
+						<option value="2" >Jogador 2</option>
+					</select>
+					
+				</div>
+				<div class="col s4">
+					<button type="submit" class="btn  waves-effect waves-light" name="action">Adicionar Jogador ao Time</button>
+				</div>
+			</form>
+		</div>
+		<div class="row">
+			<h5>Jogadores do time</h5>
+			<table class="striped">
+				<thead>
+					<tr>
+						<td>Nome</td>
+						<td>Idade</td>
+						<td>Excluir do time</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Rodrigo</td>
+						<td>23</td>
+							<td><a class="waves-effect waves-teal btn-flat" href="#">x</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+     </div>
+ 
+     <script src="/webjars/jquery/2.2.4/jquery.js"></script>
+     <script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+
+</body>
+</html>
