@@ -52,5 +52,11 @@ public class TimeController {
 		service.addJogadorATime(idTime, jogadorSemTimeID);
 		return "redirect:/times/"+idTime;
 	}
+	@RequestMapping(path="/{idTime}/removerjogador/{idJogador}")
+	public String removerJogadorDoTime(@PathVariable("idTime") Integer idTime, @PathVariable("idJogador") Integer idJogador){
+		System.out.println(idTime+"  "+idJogador);	
+		service.delJogadorDoTime(idTime, idJogador);
+		return "redirect:/times/"+idTime;
+	}
 	
 }

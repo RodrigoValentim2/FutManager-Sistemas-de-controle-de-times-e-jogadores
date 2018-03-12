@@ -41,7 +41,18 @@ public class TimeService {
 		jogador.get().setTime(t);
 		repo.save(t);
 		repoJogador.save(j);		
-		jogador.map(Jogador::getTime).orElse(null);
+		
+	}
+	
+	public void delJogadorDoTime(Integer idTime, Integer idJogador){
+		Optional<Time> time = repo.findById(idTime);
+		Optional<Jogador> jogador = repoJogador.findById(idJogador);
+		Time t =  time.get();
+		Jogador j = jogador.get();
+		t.getJogadores().remove(j);
+		j.setTime(null);
+		repo.save(t);
+		repoJogador.save(j);
 		
 	}
 }
