@@ -12,7 +12,7 @@
      <div class="container">
 		<div class="row valign-wrapper">
 			<div class="col s6">	
-				<h3>Detalhes do time: Nome do time</h3>
+				<h3>Detalhes de <span th:text="${time.nome}"></span></h3>
 			</div>
 			<div class="col s6">
 			       <a href="/jogadores/" class="btn-large waves-effect waves-light teal">Gerenciar Jogadores</a>
@@ -20,13 +20,14 @@
 			</div>
 		</div>
 		<div class="row">
-			<form>
+			<form th:action="@{${'/times/'+time.id+'/adicionarjogador'}}" method="POST">
 				<div class="col s8">
 				<label>Escolha um jogador</label>
-					<select class="browser-default">
+					<select class="browser-default" name="jogadorSemTimeID">
 						<option value="" disabled="disabled" selected="selected">Escolha um jogador</option>
-						<option value="1" >Jogador 1</option>
-						<option value="2" >Jogador 2</option>
+						 <option th:each="jogadorSemTime : ${jogadoresSemTime}" 
+     					  th:value="${jogadorSemTime.id}" th:text="${jogadorSemTime.nome}"></option>
+
 					</select>
 					
 				</div>
@@ -46,10 +47,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Rodrigo</td>
-						<td>23</td>
-							<td><a class="waves-effect waves-teal btn-flat" href="#">x</a></td>
+					  <tr th:each="jogador : ${time.jogadores}">
+   						 <td th:text="${jogador.nome}"></td>
+  					     <td th:text="${jogador.idade}"></td>
+ 		   				 <td><a class="waves-effect waves-teal btn-flat" th:href="@{${'/times/'+time.id+'/removerjogador/'+jogador.id}}">X</a></td>
 					</tr>
 				</tbody>
 			</table>

@@ -25,5 +25,8 @@ public class JogadorService {
 		List<Jogador> jogadores = repo.findAll();
 		return jogadores;
 	}
-
+	public List<Jogador> todosJogadoresSemTime(){
+		List<Jogador> jogadores = repo.findAllByTimeIsNull();
+		return jogadores;
+	}
 }
